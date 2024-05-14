@@ -8,6 +8,7 @@ namespace WingtipToys.Models
 {
     public class ProductContext : DbContext
     {
+        //with the connection string will create automatically the database in the project.
         public ProductContext() : base("name=ProductContext")
         {
            
