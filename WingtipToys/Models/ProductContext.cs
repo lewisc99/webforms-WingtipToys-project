@@ -8,8 +8,9 @@ namespace WingtipToys.Models
 {
     public class ProductContext : DbContext
     {
-        public ProductContext() : base("WingtipToys")
+        public ProductContext() : base("name=ProductContext")
         {
+           
         }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
