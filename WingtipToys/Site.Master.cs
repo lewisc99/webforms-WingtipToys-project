@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using WingtipToys.Logic;
 using WingtipToys.Models;
 
 namespace WingtipToys
@@ -21,5 +22,15 @@ namespace WingtipToys
             IQueryable<Category> query = _db.Categories;
             return query;
         }
+
+        protected void Page_PreRender(object sender, EventArgs e)
+        {
+            using (ShoppingCartActions usersShoppingCart = new ShoppingCartActions())
+            {
+                string cartStr = string.Format("Cart ({0})", usersShoppingCart.GetCount());
+                cartCount.InnerText = cartStr;
+            }
+        }
+
     }
 }
